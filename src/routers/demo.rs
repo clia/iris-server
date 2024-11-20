@@ -1,5 +1,5 @@
-use salvo::oapi::endpoint;
 use crate::app_writer::AppResult;
+use salvo::oapi::endpoint;
 #[endpoint]
 pub async fn hello() -> AppResult<&'static str> {
     Ok("Hello World from salvo")
@@ -7,9 +7,9 @@ pub async fn hello() -> AppResult<&'static str> {
 
 #[allow(unused_imports)]
 mod tests {
+    use crate::config::CFG;
     use salvo::test::{ResponseExt, TestClient};
     use salvo::Service;
-    use crate::config::CFG;
 
     #[tokio::test]
     async fn test_hello_world() {
